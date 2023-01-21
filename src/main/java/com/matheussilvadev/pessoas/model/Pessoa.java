@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -32,7 +30,6 @@ public class Pessoa {
 	@Column(nullable = false, columnDefinition = "datetime")
 	private LocalDateTime dataNascimento;
 	
-	@JsonIgnore
 	@Embedded
 	private Endereco endereco;
 
