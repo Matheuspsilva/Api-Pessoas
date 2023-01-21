@@ -10,3 +10,4 @@ create table pessoa (
 	
 	primary key (id)
 ) engine=InnoDB default charset=utf8;
+
