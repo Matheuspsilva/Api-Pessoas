@@ -2,7 +2,6 @@ package com.matheussilvadev.pessoas.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -21,7 +20,7 @@ public class Endereco {
 	@Column(name = "endereco_numero")
 	private String numero;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "endereco_cidade_id")
 	private Cidade cidade;
 }
