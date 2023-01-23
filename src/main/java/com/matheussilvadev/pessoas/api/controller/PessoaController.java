@@ -2,6 +2,8 @@ package com.matheussilvadev.pessoas.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,13 +43,13 @@ public class PessoaController {
 
 	@PostMapping("/")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Pessoa adicionar(@RequestBody Pessoa pessoa) {
+	public Pessoa adicionar(@RequestBody @Valid Pessoa pessoa) {
 		System.out.println(pessoa.toString());
 		return cadastroPessoaService.salvar(pessoa);
 	}
 
 	@PutMapping("/{id}")
-	public Pessoa atualizar(@PathVariable Long id, @RequestBody Pessoa pessoa) {
+	public Pessoa atualizar(@PathVariable Long id, @RequestBody @Valid Pessoa pessoa) {
 		
 		Pessoa pessoaAtual = cadastroPessoaService.buscarOuFalhar(id);
 
