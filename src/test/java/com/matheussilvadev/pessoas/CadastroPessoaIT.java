@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 import javax.validation.ConstraintViolationException;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.matheussilvadev.pessoas.domain.exception.PessoaNaoEncontradaException;
 import com.matheussilvadev.pessoas.domain.repository.CidadeRepository;
+import com.matheussilvadev.pessoas.domain.repository.EstadoRepository;
 import com.matheussilvadev.pessoas.domain.service.CadastroPessoaService;
 import com.matheussilvadev.pessoas.model.Cidade;
 import com.matheussilvadev.pessoas.model.Endereco;
+import com.matheussilvadev.pessoas.model.Estado;
 import com.matheussilvadev.pessoas.model.Pessoa;
 
 @RunWith(SpringRunner.class)
@@ -30,6 +33,15 @@ public class CadastroPessoaIT {
 
 	@Autowired
 	private CidadeRepository cidadeRepository;
+	
+	@Autowired
+	private EstadoRepository estadoRepository;
+	
+	@Before
+	public void setUp() {
+		
+		prepararDados();
+	}
 
 	@Test
 	public void testarCadastroPessoaComSucesso() {
@@ -72,7 +84,7 @@ public class CadastroPessoaIT {
 		endereco.setNumero("32");
 
 		novaPessoa.setEndereco(endereco);
-		
+	
 		novaPessoa = cadastroPessoaService.salvar(novaPessoa);
 
 	}
@@ -82,5 +94,20 @@ public class CadastroPessoaIT {
         cadastroPessoaService.excluir(100L);
     }       
     
+	
+	private void prepararDados() {
+		
+		Estado estado = new Estado();
+		estado.setNome("Paraná");
+		
+		estado = estadoRepository.save(estado);
+		
+		Cidade cidade = new Cidade();
+		cidade.setNome("Maringá");
+		cidade.setEstado(estado);
+		
+		cidade = cidadeRepository.save(cidade);
+	}
+	
 
 }

@@ -20,6 +20,7 @@ public class CadastroPessoaService {
 
 	public Pessoa salvar(Pessoa pessoa) {
 		
+		
 		Long cidadeId = pessoa.getEndereco().getCidade().getId();
 		
 		if(cidadeId != null) {
