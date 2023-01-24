@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 
 import com.matheussilvadev.pessoas.Groups;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,12 +22,14 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cidade {
 	
+	@ApiModelProperty(example = "1")
 	@NotNull(groups = Groups.CidadeId.class)
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@ApiModelProperty(example = "Uberlândia")
 	@NotBlank
 	@Column(nullable = false)
 	private String nome;

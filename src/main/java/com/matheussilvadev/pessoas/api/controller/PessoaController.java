@@ -21,6 +21,11 @@ import com.matheussilvadev.pessoas.domain.repository.PessoaRepository;
 import com.matheussilvadev.pessoas.domain.service.CadastroPessoaService;
 import com.matheussilvadev.pessoas.model.Pessoa;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
+@Api(tags = "Pessoas")
 @RestController
 @RequestMapping("/pessoas")
 public class PessoaController {
@@ -31,27 +36,35 @@ public class PessoaController {
 	@Autowired
 	CadastroPessoaService cadastroPessoaService;
 
+	@ApiOperation("Lista as pessoas ")
 	@GetMapping("/")
 	public List<Pessoa> listar() {
 		return pessoaRepository.findAll();
 	}
 
-	@GetMapping("/{id}")
-	public Pessoa buscar(@PathVariable Long id) {
-		return cadastroPessoaService.buscarOuFalhar(id);
+	@ApiOperation("Busca uma pessoa por id")
+	@GetMapping("/{pessoaId}")
+	public Pessoa buscar(
+			@ApiParam(value = "ID de uma pessoa", example = "1") @PathVariable Long pessoaId) {
+		return cadastroPessoaService.buscarOuFalhar(pessoaId);
 	}
 
+	@ApiOperation("Cadastra uma pessoa")
 	@PostMapping("/")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Pessoa adicionar(@RequestBody @Valid Pessoa pessoa) {
+	public Pessoa adicionar(
+			@ApiParam(name = "corpo", value = "Representação de uma nova cidade") @RequestBody @Valid Pessoa pessoa) {
 		System.out.println(pessoa.toString());
 		return cadastroPessoaService.salvar(pessoa);
 	}
 
-	@PutMapping("/{id}")
-	public Pessoa atualizar(@PathVariable Long id, @RequestBody @Valid Pessoa pessoa) {
+	@ApiOperation("Atualiza uma pessoa por id")
+	@PutMapping("/{pessoaId}")
+	public Pessoa atualizar(
+			@ApiParam(value = "ID de uma pessoa", example = "1") @PathVariable Long pessoaId,
+			@ApiParam(name = "corpo", value = "Representação de pessoa com os novos dados") @RequestBody @Valid Pessoa pessoa) {
 		
-		Pessoa pessoaAtual = cadastroPessoaService.buscarOuFalhar(id);
+		Pessoa pessoaAtual = cadastroPessoaService.buscarOuFalhar(pessoaId);
 
 		BeanUtils.copyProperties(pessoa, pessoaAtual, "id");
 		pessoa.setId(pessoaAtual.getId());
@@ -60,9 +73,10 @@ public class PessoaController {
 
 	}
 	
+	@ApiOperation("Remove uma pessoa por id")
 	@DeleteMapping("/{pessoaId}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void remover(@PathVariable Long pessoaId) {
+	public void remover(@ApiParam(value = "ID de uma pessoa", example = "1") @PathVariable Long pessoaId) {
 		cadastroPessoaService.excluir(pessoaId);
 	}
 

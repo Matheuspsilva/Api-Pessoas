@@ -17,3 +17,4 @@ insert into cidade (id, nome, estado_id) values (4, 'Campinas', 2);
 insert into cidade (id, nome, estado_id) values (5, 'Fortaleza', 3);
 
 insert into pessoa (id, nome, data_nascimento, endereco_cidade_id, endereco_cep, endereco_logradouro, endereco_numero) values (1, 'Matheus Pereira da Silva', '1997-09-29', 1, '38400-999', 'Rua João Pinheiro', '1000');
+insert into pessoa (id, nome, data_nascimento, endereco_cidade_id, endereco_cep, endereco_logradouro, endereco_numero) values (2, 'João Pinheiro', '1982-09-29', 3, '38321-999', 'Rua NorteSul', '13');
