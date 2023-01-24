@@ -19,13 +19,16 @@ public class CadastroPessoaService {
 	CidadeService cidadeService;
 
 	public Pessoa salvar(Pessoa pessoa) {
-
+		
 		Long cidadeId = pessoa.getEndereco().getCidade().getId();
+		
+		if(cidadeId != null) {
+			Cidade cidade = cidadeService.buscarOuFalhar(cidadeId);
 
-		Cidade cidade = cidadeService.buscarOuFalhar(cidadeId);
+			pessoa.getEndereco().setCidade(cidade);
 
-		pessoa.getEndereco().setCidade(cidade);
-
+		}
+		
 		return pessoaRepository.save(pessoa);
 	}
 
