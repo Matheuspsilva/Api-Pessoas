@@ -1,3 +1,11 @@
+set foreign_key_checks = 0;
+
+delete from pessoa;
+delete from cidade;
+delete from estado;
+
+set foreign_key_checks = 1;
+
 insert into estado (id, nome) values (1, 'Minas Gerais');
 insert into estado (id, nome) values (2, 'São Paulo');
 insert into estado (id, nome) values (3, 'Ceará');
