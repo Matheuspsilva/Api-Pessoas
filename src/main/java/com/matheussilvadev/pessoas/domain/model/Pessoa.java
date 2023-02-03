@@ -1,4 +1,4 @@
-package com.matheussilvadev.pessoas.model;
+package com.matheussilvadev.pessoas.domain.model;
 
 import java.time.LocalDateTime;
 
