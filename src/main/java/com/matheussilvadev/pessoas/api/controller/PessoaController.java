@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.matheussilvadev.pessoas.domain.model.Pessoa;
 import com.matheussilvadev.pessoas.domain.repository.PessoaRepository;
 import com.matheussilvadev.pessoas.domain.service.CadastroPessoaService;
-import com.matheussilvadev.pessoas.model.Pessoa;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

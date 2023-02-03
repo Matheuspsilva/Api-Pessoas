@@ -5,9 +5,9 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.matheussilvadev.pessoas.domain.exception.PessoaNaoEncontradaException;
+import com.matheussilvadev.pessoas.domain.model.Cidade;
+import com.matheussilvadev.pessoas.domain.model.Pessoa;
 import com.matheussilvadev.pessoas.domain.repository.PessoaRepository;
-import com.matheussilvadev.pessoas.model.Cidade;
-import com.matheussilvadev.pessoas.model.Pessoa;
 
 @Service
 public class CadastroPessoaService {

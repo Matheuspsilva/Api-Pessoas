@@ -17,13 +17,13 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.matheussilvadev.pessoas.domain.model.Cidade;
+import com.matheussilvadev.pessoas.domain.model.Endereco;
+import com.matheussilvadev.pessoas.domain.model.Estado;
+import com.matheussilvadev.pessoas.domain.model.Pessoa;
 import com.matheussilvadev.pessoas.domain.repository.CidadeRepository;
 import com.matheussilvadev.pessoas.domain.repository.EstadoRepository;
 import com.matheussilvadev.pessoas.domain.service.CadastroPessoaService;
-import com.matheussilvadev.pessoas.model.Cidade;
-import com.matheussilvadev.pessoas.model.Endereco;
-import com.matheussilvadev.pessoas.model.Estado;
-import com.matheussilvadev.pessoas.model.Pessoa;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
