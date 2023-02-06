@@ -2,7 +2,7 @@ package com.matheussilvadev.pessoas;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -219,7 +219,7 @@ public class CadastroPessoa {
 		
 		Pessoa novaPessoa = new Pessoa();
 		novaPessoa.setNome("Paulo");
-		novaPessoa.setDataNascimento(LocalDateTime.now());
+		novaPessoa.setDataNascimento(OffsetDateTime.now());
 		novaPessoa.setId(1L);
 
 		Endereco endereco = new Endereco();

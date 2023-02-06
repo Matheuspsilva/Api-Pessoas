@@ -2,7 +2,7 @@ package com.matheussilvadev.pessoas;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import javax.validation.ConstraintViolationException;
 
@@ -50,7 +50,7 @@ public class CadastroPessoaIT {
 
 		Pessoa novaPessoa = new Pessoa();
 		novaPessoa.setNome("Paulo");
-		novaPessoa.setDataNascimento(LocalDateTime.now());
+		novaPessoa.setDataNascimento(OffsetDateTime.now());
 		novaPessoa.setId(1L);
 
 		Endereco endereco = new Endereco();
@@ -74,7 +74,7 @@ public class CadastroPessoaIT {
 
 		Pessoa novaPessoa = new Pessoa();
 		novaPessoa.setNome("");
-		novaPessoa.setDataNascimento(LocalDateTime.now());
+		novaPessoa.setDataNascimento(OffsetDateTime.now());
 		novaPessoa.setId(2L);
 
 		Endereco endereco = new Endereco();

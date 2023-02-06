@@ -1,6 +1,6 @@
 package com.matheussilvadev.pessoas.api.model.input;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import javax.persistence.Embedded;
 import javax.validation.Valid;
@@ -20,7 +20,7 @@ public class PessoaInput {
 	private String nome;
 
 	@NotNull
-	private LocalDateTime dataNascimento;
+	private OffsetDateTime dataNascimento;
 
 	@Valid
 	@Embedded

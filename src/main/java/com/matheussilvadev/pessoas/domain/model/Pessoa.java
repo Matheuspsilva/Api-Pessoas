@@ -1,6 +1,6 @@
 package com.matheussilvadev.pessoas.domain.model;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -32,7 +32,7 @@ public class Pessoa {
 	private String nome;
 	
 	@Column(nullable = false, columnDefinition = "datetime")
-	private LocalDateTime dataNascimento;
+	private OffsetDateTime dataNascimento;
 	
 	@Valid
 	@Embedded
