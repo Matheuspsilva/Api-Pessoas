@@ -1,4 +1,4 @@
-package com.matheussilvadev.pessoas.api.controller.exceptionhandler;
+package com.matheussilvadev.pessoas.api.exceptionhandler;
 
 import lombok.Getter;
 

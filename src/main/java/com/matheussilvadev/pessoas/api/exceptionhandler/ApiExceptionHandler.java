@@ -1,4 +1,4 @@
-package com.matheussilvadev.pessoas.api.controller.exceptionhandler;
+package com.matheussilvadev.pessoas.api.exceptionhandler;
 
 import java.time.OffsetDateTime;
 import java.util.List;
